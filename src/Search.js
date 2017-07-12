@@ -4,8 +4,8 @@ import * as firebase from 'firebase';
 
 class Search extends Component {
     
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         
         this.state = {
             doctors: ["Dr Smith", "Dr Jones", "Dr Mary"],

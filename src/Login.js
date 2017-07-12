@@ -19,7 +19,15 @@ class Login extends React.Component {
       currentUser: '',
     };
   }
-  
+
+componentWillMount(){
+    let usersRef = firebase.database().ref('users');
+    usersRef.on('value', snap => {
+        console.log(snap.val(), "line 26");
+        let username = {text:snap.val(), id: snap.key};
+        this.setState({currentUser: this.state.currentUser})
+    })
+}
 onChangeEmail(e) {
     this.setState({emailText: e.target.value})
 }
@@ -35,6 +43,9 @@ signUpUser(){
     firebase.auth().createUserWithEmailAndPassword(this.state.emailText, this.state.passwordText)
     this.setState({currentUser: this.state.emailText})
     console.log('New account created, and is now signed in.')
+    console.log(this.state.currentUser, "currentUser")
+    console.log(this.currentUser.value, "username")
+    firebase.database().ref('users').push( this.currentUser.value );
     
 }
 
@@ -59,7 +70,9 @@ logoutUser(){
           onChange={this.onChangeEmail.bind(this)}
           id="txtEmail"
           type="email"
-          placeholder="Email"/>
+          placeholder="Email"
+          ref={ name => this.currentUser = name}
+          />
         
         <input
           onChange={this.onChangePassword.bind(this)}
