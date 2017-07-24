@@ -74,7 +74,6 @@ logoutUser(){
             padding: '5px 10px',
             fontSize: 15,
             fontFamily: "Courier New", 
-    
             position:'relative',
             left: '650px'
 
@@ -98,6 +97,15 @@ logoutUser(){
     return (
       <div class="container">
         <div>
+          <input 
+              style={Object.assign({}, styles.usernameBox)}
+              onChange={this.onChangeEmail.bind(this)}
+              id="txtEmail"
+              type="email"
+              placeholder="Email"
+              ref={ name => this.currentUser = name}
+              />
+
          <input
               style={Object.assign({}, styles.usernameBox)}
               onChange={this.onChangePassword.bind(this)}
@@ -106,14 +114,6 @@ logoutUser(){
               placeholder="Password"
              />
                   
-            <input 
-              style={Object.assign({}, styles.usernameBox)}
-              onChange={this.onChangeEmail.bind(this)}
-              id="txtEmail"
-              type="email"
-              placeholder="Email"
-              ref={ name => this.currentUser = name}
-              />
                   
         </div>
 
