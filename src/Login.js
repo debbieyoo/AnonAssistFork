@@ -95,10 +95,10 @@ logoutUser(){
     }
         
     return (
-      <div class="container">
+      <div className="container">
         <div>
           <input 
-              style={Object.assign({}, styles.usernameBox)}
+              style={styles.usernameBox}
               onChange={this.onChangeEmail.bind(this)}
               id="txtEmail"
               type="email"
@@ -121,7 +121,7 @@ logoutUser(){
           style={Object.assign({}, styles.loginButton)}
           onClick={this.loginUser.bind(this)}
           id="btnLogin"
-          class="btn btn-action">
+          className="btn btn-action">
           Log in
         </button>
 
@@ -129,7 +129,7 @@ logoutUser(){
           style={Object.assign({}, styles.loginButton)}
           onClick={this.signUpUser.bind(this)}
           id="btnSignUp"
-          class="btn btn-secondary">
+          className="btn btn-secondary">
           Sign Up
         </button>
 
@@ -137,7 +137,7 @@ logoutUser(){
           style={Object.assign({}, styles.loginButton)}
           onClick={this.logoutUser.bind(this)}
           id="btnLogout"
-          class="btn btn-action hide">
+          className="btn btn-action hide">
           Log Out
         </button>
 

@@ -17,7 +17,7 @@ export default class App extends React.Component {
         <BrowserRouter> 
             <div className='container'>
                 <Navbar />
-                <Route component={Navbar}/>
+              
                 <Route exact path="/" component={Home}/>
                 <Route path="/bios" component={Bios}/>
                 <Route path="/message" component={Message}/>

@@ -6,7 +6,9 @@ export default class Navbar extends React.Component {
     render(){
         var styles = {
             listType: {
-                listStyleType: 'none'
+                listStyleType: 'none',
+                marginTop: '50px',
+                fontFamily: "Courier New",
             }
             
         }

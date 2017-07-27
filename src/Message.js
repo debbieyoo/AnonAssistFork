@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import * as firebase from 'firebase';
+var doctorUUID = 'laskdjflaskjf'
+var localUserUUID = 'laksdjflaksd'
+//localStorage.setItem('localUserUUID', firebaseReturnUUID)
+//localStorage.getItem('localUserUUID')
 
-class App extends Component {
+class Message extends Component {
   constructor(props) {
     super(props);
     this.state = { messages: [] }; // <- set up react state
@@ -13,9 +17,10 @@ class App extends Component {
     messagesRef.on('child_added', snapshot => {
       /* Update React state when message is added at Firebase Database */
       let message = { text: snapshot.val(), id: snapshot.key };
-      this.setState({ messages: [message].concat(this.state.messages) });
-    })
-      
+        var messagesArray = this.state.messages;
+        messagesArray.push(message)
+      this.setState({ messages: messagesArray});
+    })  
   }
 
 
@@ -80,4 +85,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Message;
